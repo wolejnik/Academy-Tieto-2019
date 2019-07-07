@@ -1,0 +1,32 @@
+body {
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#linkList {
+  list-style-type: none;
+  column-count: 5;
+  padding: 20px;
+}
+
+hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-width: 5px;
+}
+
+li a {
+  text-decoration: none;
+  color: black;
+}
+
+p, h2 {
+  text-align: center;
+}
+
+.listheader {
+  background: rgb(201, 201, 201)
+}
