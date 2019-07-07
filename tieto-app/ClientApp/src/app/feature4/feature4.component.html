@@ -1,0 +1,14 @@
+<h1>City weather forecast</h1>
+
+<div class="example-container">
+  <mat-form-field>
+    <input matInput placeholder="City:" [(ngModel)]="city">
+  </mat-form-field>
+
+</div>
+<button mat-raised-button color="primary" (click)="getWeather()">Search</button>
+
+<div *ngIf="data">
+  <div *ngFor="let x of data.weather">
+    <p>{{x.description}}</p>
+  </div>

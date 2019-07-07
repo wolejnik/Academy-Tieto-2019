@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Http;
+using System.IO;
+using System.Text;
+using System.Net;
 
 namespace tieto_app.Controllers
 {
+
+
     [Route("api/[controller]")]
     public class SampleDataController : Controller
     {
@@ -25,6 +31,21 @@ namespace tieto_app.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             });
         }
+        
+        [HttpGet("[action]")]
+        async public Task<ContentResult> WeatherForecastsForCity(string city)
+        {
+            HttpClient client = new HttpClient();
+            var response =  await client.GetStringAsync($"https://samples.openweathermap.org/data/2.5/weather?q={city}&appid=69656caac35f6879061f3e99d3de0ade");
+
+            //Stream receiveStream = response.GetResponseStream ();
+            //StreamReader readStream = new StreamReader (receiveStream, Encoding.UTF8);
+            //var weatherForecast = await response.Content.ReadAsAsync<string>();
+            
+            HttpContext.Response.Headers["Content-Type"] = "application/json";
+            return Content( response, "application/json");
+            //return response;
+        }
 
         public class WeatherForecast
         {
@@ -40,5 +61,21 @@ namespace tieto_app.Controllers
                 }
             }
         }
+/*
+        public class Weather{
+            public int ID { get; set;}
+            public string Main {get; set;}
+            public string Description {get; set; }
+            public string Icon { get; set; }
+        }
+
+       
+        public class WeatherData {
+            public int lon { get; set;}
+            public int lat {get; set;}
+            public string description {get; set; }
+            public Weather = new Ar
+        }
+  */       
     }
 }

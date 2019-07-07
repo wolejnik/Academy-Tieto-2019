@@ -27,7 +27,13 @@
                       <span class='glyphicon glyphicon-th-list'></span> Fetch data
                   </a>
               </li>
+              <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+                <a class='bg-primary text-white' [routerLink]='["/feature4"]' (click)='collapse()'>
+                    <span class='glyphicon glyphicon-home'></span> Feature 4
+                </a>
+            </li>
           </ul>
       </div>
   </div>
 </div>
+

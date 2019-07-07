@@ -4,13 +4,13 @@
 
 <p *ngIf="!forecasts"><em>Loading...</em></p>
 
-<table class="table table-striped" *ngIf="forecasts">
+<table matSort (matSortChange)="sortData($event)" class="table table-striped" *ngIf="forecasts">
   <thead class="bg-primary">
     <tr>
-      <th>Date</th>
-      <th>Temp. (C)</th>
-      <th>Temp. (F)</th>
-      <th>Summary</th>
+      <th mat-sort-header="dateFormatted">Date</th>
+      <th mat-sort-header="temperatureC">Temp. (C)</th>
+      <th mat-sort-header="temperatureF">Temp. (F)</th>
+      <th mat-sort-header="Summary">Summary</th>
     </tr>
   </thead>
   <tbody>
