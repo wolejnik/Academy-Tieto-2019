@@ -9,6 +9,14 @@
 <button mat-raised-button color="primary" (click)="getWeather()">Search</button>
 
 <div *ngIf="data">
-  <div *ngFor="let x of data.weather">
-    <p>{{x.description}}</p>
-  </div>
+    <mat-list>
+        <h3 mat-subheader>{{city}}</h3>
+        <mat-list-item> Temp (K) : {{ data.main.temp}} </mat-list-item>
+        <mat-list-item> Pressure : {{ data.main.pressure }} </mat-list-item>
+        <mat-list-item> Wind speed (KM/H) : {{ data.wind.speed }} </mat-list-item>
+        <div *ngFor="let item of data.weather" >
+            <mat-list-item> Weather : {{item.main}} </mat-list-item>
+            <mat-list-item> Weather description : {{item.description}} </mat-list-item>
+        </div>
+    </mat-list>
+</div>

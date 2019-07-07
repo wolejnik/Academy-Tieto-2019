@@ -15,7 +15,6 @@ export class Feature4Component {
   getWeather() {
     this.http.get<WeatherForecast>(`${this.baseUrl}api/SampleData/WeatherForecastsForCity?city=${this.city}`).subscribe(result => {
       this.data = result;
-
     }, error => console.error(error));
   }
 
@@ -35,5 +34,17 @@ interface WeatherForecast {
        'lat': number
     };
     'weather': Weather[];
+    'base': string;
+    'main': {
+      'temp': number;
+      'pressure': number;
+      'humidity': number;
+      'temp_min': number;
+      'temp_max': number;
+    };
+    'visibility': number;
+    'wind': {
+      'speed': number;
+      'deg': number;
+    };
 }
-
