@@ -11,7 +11,7 @@
 <div *ngIf="data">
     <mat-list>
         <h3 mat-subheader>{{city}}</h3>
-        <mat-list-item> Temp (K) : {{ data.main.temp}} </mat-list-item>
+        <mat-list-item> Temp (C) : {{ data.main.temp | number : '1.2' }} </mat-list-item>
         <mat-list-item> Pressure : {{ data.main.pressure }} </mat-list-item>
         <mat-list-item> Wind speed (KM/H) : {{ data.wind.speed }} </mat-list-item>
         <div *ngFor="let item of data.weather" >

@@ -15,6 +15,7 @@ export class Feature4Component {
   getWeather() {
     this.http.get<WeatherForecast>(`${this.baseUrl}api/SampleData/WeatherForecastsForCity?city=${this.city}`).subscribe(result => {
       this.data = result;
+      this.data.main.temp -= 273.15;
     }, error => console.error(error));
   }
 
